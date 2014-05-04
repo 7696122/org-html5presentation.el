@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>org-html5presentation.el</title>
+<!-- 2014-05-04 Sun 19:09 -->
+<meta  http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1">
+<meta  charset="utf-8">
+<meta  name="generator" content="Org-mode">
+<meta  name="author" content="Takumi kinjo">
+<link id="prettify-link" href="resources/styles/prettify.css" rel="stylesheet" disabled />
+<link href="resources/styles/fonts.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="resources/styles/presentation.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="resources/styles/common.css" rel="stylesheet" type="text/css" media="screen" />
+<link class="theme" href="resources/styles/default.css" rel="stylesheet" type="text/css" media="screen" />
+<link class="theme" href="resources/styles/moon.css" rel="stylesheet" type="text/css" media="screen" />
+<link class="theme" href="resources/styles/sand.css" rel="stylesheet" type="text/css" media="screen"/>
+<link class="theme" href="resources/styles/sea_wave.css" rel="stylesheet" type="text/css" media="screen"/>
+<link rel="stylesheet" href="resources/styles/mystyle.css" type="text/css" />
+</head>
+<body>
+<div id="flex-container">
+<nav id="helpers">
+<button title="Previous slide" id="nav-prev" class="nav-prev">&#8701;</button>
+<button title="Jump to a random slide" id="slide-no">5</button>
+<button title="Next slide" id="nav-next" class="nav-next">&#8702;</button>
+<menu>
+<!-- <button type="checkbox" data-command="toc" title="Table of Contents" class="toc">TOC</button> -->
+<!-- <button type="checkbox" data-command="resources" title="View Related Resources">&#9734;</button> -->
+<!-- <button type="checkbox" data-command="notes" title="View Slide Notes">&#9999;</button> -->
+<!-- <button type="checkbox" data-command="source" title="View slide source">&#8635;</button> -->
+<button type="checkbox" data-command="help" title="View Help">?</button>
+</menu>
+</nav>
+<div class="slides">
+<div id="presentation-counter">Loading...</div>
+<div class="slide title-slide" id="landing-slide">
+<section class="middle">
+<hgroup>
+<h1>org-html5presentation.el</h1>
+<h2></h2>
+</hgroup>
+<p>Press <span id="left-init-key" class="key">&rarr;</span> key to advance.</p>
+<p class="author">Author: Takumi kinjo</p>
+<p class="date">Created: 2014-05-04 Sun 19:09</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.3.1 (<a href="http://orgmode.org">Org</a> mode 8.2.6)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+
+</section>
+</div>
+<div class="slide" id="table-of-contents">
+<header>Table of Contents</header>
+<section id="toc-list">
+<ul>
+<li><a data-hash="outline-container-sec-1">org-html5presentation.el</a></li>
+<li><a data-hash="outline-container-sec-2">INSTALLATION</a></li>
+<li><a data-hash="outline-container-sec-3">USAGE</a></li>
+<li><a data-hash="outline-container-sec-4">PROPERTIES for CSS</a></li>
+<li><a data-hash="outline-container-sec-5">PROPERTIES for JS</a></li>
+<li><a data-hash="outline-container-sec-6">LICENSE</a></li>
+</ul>
+</section>
+</div>
+
+<div id="outline-container-sec-1" class="slide transitionSlide">
+<header id="sec-1">org-html5presentation.el</header>
+<section>
+<p>
+This library implements a HTML5 Presentation back-end for Org
+generic exporter based on ox-html.el.
+</p>
+
+<p>
+<a href="http://kinjo.github.io/org-html5presentation.el/">http://kinjo.github.io/org-html5presentation.el/</a> is a demo page.
+Please use the latest version of Google Chrome.
+</p>
+
+<ul class="org-ul">
+<li>See <a href="http://orgmode.org/">http://orgmode.org/</a> about Org-mode.
+</li>
+
+<li>See <a href="http://slides.html5rocks.com">http://slides.html5rocks.com</a> about HTML5 Presentation.
+</li>
+</ul>
+
+<p>
+This requires <b>Org-mode version 8.2.6</b> and <b>GNU Emacs 24 or higher</b>.
+</p>
+</section>
+
+</div>
+<div id="outline-container-sec-2" class="slide transitionSlide">
+<header id="sec-2">INSTALLATION</header>
+<section>
+<ol class="org-ol">
+<li>First of all, check your Org-mode version.
+This library has been tested on Org-mode 8.2.6.
+<pre class="example">
+M-x org-version
+</pre>
+</li>
+
+<li>Get org-html5presentation.el. For example,
+<pre class="example">
+git clone https://github.com/kinjo/org-html5presentation.el.git \
+~/org-html5presentation.el
+</pre>
+</li>
+
+<li>Add following to ~/.emacs.d/init.el and reboot emacs.
+<pre class="example">
+(add-to-list 'load-path "~/org-html5presentation.el")
+(require 'ox-html5presentation)
+</pre>
+</li>
+</ol>
+</section>
+
+</div>
+<div id="outline-container-sec-3" class="slide transitionSlide">
+<header id="sec-3">USAGE</header>
+<section>
+<ol class="org-ol">
+<li>Open this README.org in your emacs.
+</li>
+
+<li>Type C-c C-e to convert Org file to an HTML5 Presentation file.
+</li>
+
+<li>`*Org Export Dispatcher*' buffer will open, so follow the menu.
+</li>
+
+<li>For example, if you type `p' and then `p', README.html will be generated.
+</li>
+
+<li>Finally, Open the generated file in your Google Chrome.
+</li>
+</ol>
+</section>
+
+</div>
+<div id="outline-container-sec-4" class="slide transitionSlide">
+<header id="sec-4">PROPERTIES for CSS</header>
+<section>
+<p>
+Following PROPERTIES are available for CSSs.
+</p>
+
+<ul class="org-ul">
+<li>PRETTIFY_CSS : resources/styles/prettify.css is default. org-html5presentation-prettify-css defines.
+</li>
+<li>FONTS_CSS : resources/styles/fonts.css is default. org-html5presentation-fonts-css defines.
+</li>
+<li>PRESENTATION_CSS : resources/styles/presentation.css is default. org-html5presentation-presentation-css defines.
+</li>
+<li>COMMON_CSS : resources/styles/common.css is default. org-html5presentation-common-css defines.
+</li>
+<li>DEFAULT_CSS : resources/styles/default.css is default. org-html5presentation-default-css defines.
+</li>
+<li>MOON_CSS : resources/styles/moon.css is default. org-html5presentation-moon-css defines.
+</li>
+<li>SAND_CSS : resources/styles/sand.css is default. org-html5presentation-sand-css defines.
+</li>
+<li>SEA_WAVE_CSS : css resources/styles/sea_wave.css is default. org-html5presentation-sea-wave-css defines.
+</li>
+</ul>
+</section>
+
+</div>
+<div id="outline-container-sec-5" class="slide transitionSlide">
+<header id="sec-5">PROPERTIES for JS</header>
+<section>
+<ul class="org-ul">
+<li>IE_LT_9_JS : <a href="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js</a> is default. org-html5presentation-ie-lt-9-js defines.
+</li>
+<li>PRETTIFY_JS : resources/js/prettify.js is default. org-html5presentation-prettify-js defines.
+</li>
+<li>UTILS_JS : resources/js/utils.js is default. org-html5presentation-utils-js defines.
+</li>
+</ul>
+</section>
+
+</div>
+<div id="outline-container-sec-6" class="slide transitionSlide">
+<header id="sec-6">LICENSE</header>
+<section>
+<p>
+Licensed under the GPLv3 license.
+</p>
+</section>
+</div><aside id="help" class="sidebar invisible" style="display: none;">
+<table>
+<caption>Help</caption>
+<tbody>
+<tr>
+<th>Move Around</th>
+<td>&larr;&nbsp;&rarr;</td>
+</tr>
+<tr>
+<th>Change Theme</th>
+<td>t</td>
+</tr>
+<tr>
+<th>Syntax Highlight</th>
+<td>h</td>
+</tr>
+<tr>
+<th>Toggle 3D</th>
+<td>3</td>
+</tr>
+<tr>
+<th>Help</th>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+</aside>
+</div>
+</div>
+<!--[if lt IE 9]>
+<script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">
+</script>
+<script>CFInstall.check({ mode: "overlay" });</script>
+<![endif]-->
+<script src="resources/js/prettify.js" onload="prettyPrint();" defer></script>
+<script src="resources/js/utils.js"></script>
+</body>
+</html>
