@@ -13,7 +13,7 @@
 #+PRETTIFY_JS:      http://kinjo.github.io/org-html5presentation.el/resources/js/prettify.js
 #+UTILS_JS:         http://kinjo.github.io/org-html5presentation.el/resources/js/utils.js
 #+HTML_HEAD:        <link rel="stylesheet" href="http://kinjo.github.io/org-html5presentation.el/resources/styles/mystyle.css" type="text/css" />
-* org-html5presentation.el
+* WHAT'S THIS?
 
   This library implements a HTML5 Presentation back-end for Org
   generic exporter based on ox-html.el.
