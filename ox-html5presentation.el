@@ -1,6 +1,6 @@
 ;;; ox-html5presentation.el --- HTML5 Presentation Back-End for Org Export Engine
 
-;; Copyright (C) 2014 Takumi Kinjo.
+;; Copyright (C) 2014, 2015 Takumi Kinjo.
 
 ;; Author: Takumi KINJO <takumi dot kinjo at gmail dot org>
 ;; URL: https://github.com/kinjo/org-html5presentation.el
