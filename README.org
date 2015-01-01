@@ -1,8 +1,8 @@
 #+TITLE: org-html5presentation.el
 #+AUTHOR: Takumi kinjo
-#+OPTIONS: ^:nil num:nil
+#+OPTIONS: ^:nil num:nil toc:t
 #+HTML_HEAD:        <link rel="stylesheet" href="resources/styles/mystyle.css" type="text/css" />
-* org-html5presentation.el
+* WHAT'S THIS?
 
   This library implements a HTML5 Presentation back-end for Org
   generic exporter based on ox-html.el.
@@ -14,12 +14,12 @@
 
   * See http://slides.html5rocks.com about HTML5 Presentation.
 
-  This requires *Org-mode version 8.2.6* and *GNU Emacs 24 or higher*.
+  This requires *Org-mode version 8.2.10* and *GNU Emacs 24 or higher*.
 
 * INSTALLATION
 
   1) First of all, check your Org-mode version.
-     This library has been tested on Org-mode 8.2.6.
+     This library has been tested on Org-mode 8.2.10.
      : M-x org-version
 
   3) Get org-html5presentation.el. For example,
