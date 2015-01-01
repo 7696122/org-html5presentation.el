@@ -1,6 +1,6 @@
 #+TITLE: org-html5presentation.el
 #+AUTHOR: Takumi kinjo
-#+OPTIONS: ^:nil num:nil
+#+OPTIONS: ^:nil num:nil toc:t
 #+PRETTIFY_CSS:     http://kinjo.github.io/org-html5presentation.el/resources/styles/prettify.css
 #+FONTS_CSS:        http://kinjo.github.io/org-html5presentation.el/resources/styles/fonts.css
 #+PRESENTATION_CSS: http://kinjo.github.io/org-html5presentation.el/resources/styles/presentation.css

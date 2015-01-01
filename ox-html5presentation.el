@@ -36,75 +36,16 @@
 
 ;;; Dependencies
 
-(require 'ox)
-(require 'ox-publish)
-(require 'format-spec)
-(eval-when-compile (require 'cl) (require 'table nil 'noerror))
-
-
-;;; Function Declarations
-
-(declare-function org-id-find-id-file "org-id" (id))
-(declare-function htmlize-region "ext:htmlize" (beg end))
-(declare-function org-pop-to-buffer-same-window
-		  "org-compat" (&optional buffer-or-name norecord label))
-(declare-function mm-url-decode-entities "mm-url" ())
+(require 'ox-html)
 
 ;;; Define Back-End
 
-(org-export-define-backend 'html5presentation
-  '((bold . org-html-bold)
-    (center-block . org-html-center-block)
-    (clock . org-html-clock)
-    (code . org-html-code)
-    (drawer . org-html-drawer)
-    (dynamic-block . org-html-dynamic-block)
-    (entity . org-html-entity)
-    (example-block . org-html-example-block)
-    (export-block . org-html-export-block)
-    (export-snippet . org-html-export-snippet)
-    (fixed-width . org-html-fixed-width)
-    (footnote-definition . org-html-footnote-definition)
-    (footnote-reference . org-html-footnote-reference)
-    (headline . org-html5presentation-headline)
-    (horizontal-rule . org-html-horizontal-rule)
-    (inline-src-block . org-html-inline-src-block)
-    (inlinetask . org-html-inlinetask)
+(org-export-define-derived-backend 'html5presentation 'html
+  :translate-alist 
+  '((headline . org-html5presentation-headline)
     (inner-template . org-html5presentation-inner-template)
-    (italic . org-html-italic)
-    (item . org-html-item)
-    (keyword . org-html-keyword)
-    (latex-environment . org-html-latex-environment)
-    (latex-fragment . org-html-latex-fragment)
-    (line-break . org-html-line-break)
-    (link . org-html-link)
-    (paragraph . org-html-paragraph)
-    (plain-list . org-html-plain-list)
-    (plain-text . org-html-plain-text)
-    (planning . org-html-planning)
-    (property-drawer . org-html-property-drawer)
-    (quote-block . org-html-quote-block)
-    (quote-section . org-html-quote-section)
-    (radio-target . org-html-radio-target)
     (section . org-html5presentation-section)
-    (special-block . org-html-special-block)
-    (src-block . org-html-src-block)
-    (statistics-cookie . org-html-statistics-cookie)
-    (strike-through . org-html-strike-through)
-    (subscript . org-html-subscript)
-    (superscript . org-html-superscript)
-    (table . org-html-table)
-    (table-cell . org-html-table-cell)
-    (table-row . org-html-table-row)
-    (target . org-html-target)
-    (template . org-html5presentation-template)
-    (timestamp . org-html-timestamp)
-    (underline . org-html-underline)
-    (verbatim . org-html-verbatim)
-    (verse-block . org-html-verse-block))
-  :export-block "HTML"
-  :filters-alist '((:filter-options . org-html-infojs-install-script)
-		   (:filter-final-output . org-html-final-function))
+    (template . org-html5presentation-template))
   :menu-entry
   '(?p "Export to HTML5 Presentation"
        ((?P "As HTML buffer" org-html5presentation-export-as-html)
@@ -114,29 +55,7 @@
 	      (if a (org-html5presentation-export-to-html t s v b)
 		(org-open-file (org-html5presentation-export-to-html nil s v b)))))))
   :options-alist
-  '((:html-extension nil nil org-html-extension)
-    (:html-link-org-as-html nil nil org-html-link-org-files-as-html)
-    (:html-doctype "HTML_DOCTYPE" nil org-html5presentation-doctype)
-    (:html-container "HTML_CONTAINER" nil org-html-container-element)
-    (:html-html5-fancy nil "html5-fancy" org-html-html5-fancy)
-    (:html-link-use-abs-url nil "html-link-use-abs-url" org-html-link-use-abs-url)
-    (:html-link-home "HTML_LINK_HOME" nil org-html-link-home)
-    (:html-link-up "HTML_LINK_UP" nil org-html-link-up)
-    (:html-mathjax "HTML_MATHJAX" nil "" space)
-    (:html-postamble nil "html-postamble" org-html-postamble)
-    (:html-preamble nil "html-preamble" org-html-preamble)
-    (:html-head "HTML_HEAD" nil org-html-head newline)
-    (:html-head-extra "HTML_HEAD_EXTRA" nil org-html-head-extra newline)
-    (:html-head-include-default-style nil "html-style" org-html-head-include-default-style)
-    (:html-head-include-scripts nil "html-scripts" org-html-head-include-scripts)
-    (:html-table-attributes nil nil org-html-table-default-attributes)
-    (:html-table-row-tags nil nil org-html-table-row-tags)
-    (:html-xml-declaration nil nil org-html-xml-declaration)
-    (:html-inline-images nil nil org-html-inline-images)
-    (:infojs-opt "INFOJS_OPT" nil nil)
-    ;; Redefine regular options.
-    (:creator "CREATOR" nil org-html-creator-string)
-    (:with-latex nil "tex" org-html-with-latex)
+  '((:html-doctype "HTML_DOCTYPE" nil org-html5presentation-doctype)
     (:prettify-css "PRETTIFY_CSS" nil org-html5presentation-prettify-css)
     (:fonts-css "FONTS_CSS" nil org-html5presentation-fonts-css)
     (:presentation-css "PRESENTATION_CSS" nil org-html5presentation-presentation-css)
@@ -147,30 +66,7 @@
     (:sea-wave-css "SEA_WAVE_CSS" nil org-html5presentation-sea-wave-css)
     (:ie-lt-9-js "IE_LT_9_JS" nil org-html5presentation-ie-lt-9-js)
     (:prettify-js "PRETTIFY_JS" nil org-html5presentation-prettify-js)
-    (:utils-js "UTILS_JS" nil org-html5presentation-utils-js)
-    ;; Retrieve LaTeX header for fragments.
-    (:latex-header "LATEX_HEADER" nil nil newline)))
-
-
-;;; Internal Variables
-
-(defconst org-html5presentation-style-default
-  "<link id=\"prettify-link\" href=\"resources/styles/prettify.css\" rel=\"stylesheet\" disabled />
-<link href=\"resources/styles/fonts.css\" rel=\"stylesheet\" type=\"text/css\" media=\"screen\" />
-<link href=\"resources/styles/presentation.css\" rel=\"stylesheet\" type=\"text/css\" media=\"screen\" />
-<link href=\"resources/styles/common.css\" rel=\"stylesheet\" type=\"text/css\" media=\"screen\" />
-<link class=\"theme\" href=\"resources/styles/default.css\" rel=\"stylesheet\" type=\"text/css\" media=\"screen\" />
-<link class=\"theme\" href=\"resources/styles/moon.css\" rel=\"stylesheet\" type=\"text/css\" media=\"screen\" />
-<link class=\"theme\" href=\"resources/styles/sand.css\" rel=\"stylesheet\" type=\"text/css\" media=\"screen\"/>
-<link class=\"theme\" href=\"resources/styles/sea_wave.css\" rel=\"stylesheet\" type=\"text/css\" media=\"screen\"/>
-"
-  "The default style specification for exported HTML files.
-You can use `org-html-head' and `org-html-head-extra' to add to
-this style.  If you don't want to include this default style,
-customize `org-html-head-include-default-style'.")
-
-
-;;; User Configuration Variables
+    (:utils-js "UTILS_JS" nil org-html5presentation-utils-js)))
 
 ;;;; Template :: Generic
 
