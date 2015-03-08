@@ -14,19 +14,22 @@
 
   * See http://slides.html5rocks.com about HTML5 Presentation.
 
-  This requires *Org-mode version 8.2.10* and *GNU Emacs 24 or higher*.
+  This has been tested on *Org-mode version 8.3beta* and *GNU Emacs 24.4*.
+
+  If you want to use this on Org 8.2.10, please checkout
+  tagged version. (tagged with org-8.2.10)
 
 * INSTALLATION
 
-  1) First of all, check your Org-mode version.
-     This library has been tested on Org-mode 8.2.10.
+  1) First of all, make sure your Org-mode version.
+     This library has been tested on 8.3beta.
      : M-x org-version
 
   3) Get org-html5presentation.el. For example,
     : git clone https://github.com/kinjo/org-html5presentation.el.git \
     : ~/org-html5presentation.el
 
-  4) Add following to ~/.emacs.d/init.el and reboot emacs.
+  4) Add load-path in your init.el and restart the emacs.
     : (add-to-list 'load-path "~/org-html5presentation.el")
     : (require 'ox-html5presentation)
 
