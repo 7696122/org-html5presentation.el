@@ -1,18 +1,18 @@
 #+TITLE: org-html5presentation.el
 #+AUTHOR: Takumi kinjo
 #+OPTIONS: ^:nil num:nil toc:t
-#+PRETTIFY_CSS:     http://kinjo.github.io/org-html5presentation.el/resources/styles/prettify.css
-#+FONTS_CSS:        http://kinjo.github.io/org-html5presentation.el/resources/styles/fonts.css
-#+PRESENTATION_CSS: http://kinjo.github.io/org-html5presentation.el/resources/styles/presentation.css
-#+COMMON_CSS:       http://kinjo.github.io/org-html5presentation.el/resources/styles/common.css
-#+DEFAULT_CSS:      http://kinjo.github.io/org-html5presentation.el/resources/styles/default.css
-#+MOON_CSS:         http://kinjo.github.io/org-html5presentation.el/resources/styles/moon.css
-#+SAND_CSS:         http://kinjo.github.io/org-html5presentation.el/resources/styles/sand.css
-#+SEA_WAVE_CSS:     http://kinjo.github.io/org-html5presentation.el/resources/styles/sea_wave.css
+#+PRETTIFY_CSS:     resources/styles/prettify.css
+#+FONTS_CSS:        resources/styles/fonts.css
+#+PRESENTATION_CSS: resources/styles/presentation.css
+#+COMMON_CSS:       resources/styles/common.css
+#+DEFAULT_CSS:      resources/styles/default.css
+#+MOON_CSS:         resources/styles/moon.css
+#+SAND_CSS:         resources/styles/sand.css
+#+SEA_WAVE_CSS:     resources/styles/sea_wave.css
 #+IE_LT_9_JS:       http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js
-#+PRETTIFY_JS:      http://kinjo.github.io/org-html5presentation.el/resources/js/prettify.js
-#+UTILS_JS:         http://kinjo.github.io/org-html5presentation.el/resources/js/utils.js
-#+HTML_HEAD:        <link rel="stylesheet" href="http://kinjo.github.io/org-html5presentation.el/resources/styles/mystyle.css" type="text/css" />
+#+PRETTIFY_JS:      resources/js/prettify.js
+#+UTILS_JS:         resources/js/utils.js
+#+HTML_HEAD:        <link rel="stylesheet" href="resources/styles/mystyle.css" type="text/css" />
 * WHAT'S THIS?
 
   This library implements a HTML5 Presentation back-end for Org
