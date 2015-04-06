@@ -1,6 +1,17 @@
 #+TITLE: org-html5presentation.el
 #+AUTHOR: Takumi kinjo
 #+OPTIONS: ^:nil num:nil toc:t
+#+PRETTIFY_CSS:     resources/styles/prettify.css
+#+FONTS_CSS:        resources/styles/fonts.css
+#+PRESENTATION_CSS: resources/styles/presentation.css
+#+COMMON_CSS:       resources/styles/common.css
+#+DEFAULT_CSS:      resources/styles/default.css
+#+MOON_CSS:         resources/styles/moon.css
+#+SAND_CSS:         resources/styles/sand.css
+#+SEA_WAVE_CSS:     resources/styles/sea_wave.css
+#+IE_LT_9_JS:       http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js
+#+PRETTIFY_JS:      resources/js/prettify.js
+#+UTILS_JS:         resources/js/utils.js
 #+HTML_HEAD:        <link rel="stylesheet" href="resources/styles/mystyle.css" type="text/css" />
 * WHAT'S THIS?
 
@@ -14,7 +25,7 @@
 
   * See http://slides.html5rocks.com about HTML5 Presentation.
 
-  This has been tested on *Org-mode version 8.3beta* and *GNU Emacs 24.4*.
+  This has been tested on *Org-mode version 8.3beta(commit cff54cd)* and *GNU Emacs 24.4*.
 
   If you want to use this on Org 8.2.10, please checkout
   tagged version. (tagged with org-8.2.10)
